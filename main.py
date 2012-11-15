@@ -19,9 +19,7 @@ from google.appengine.ext.webapp import util, template
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write(template.render("templates/index.html",locals()))
-
-    def post(self):
+        self.response.write(template.render("templates/index.html", locals()))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)

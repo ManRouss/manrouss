@@ -19,7 +19,12 @@
 		
 		<div id="container">
     
-		<?php include 'notificacion.php'; ?>
+		<div id="topannounce" style="display: block;">
+			<div id="announce-container" align="center">
+				<a href="#" onclick="$.cookie('notificationBar', 'closed'); $('#topannounce').fadeOut('fast')" class="rightCloseButton" title="Clic para cerrar la notificaci�n">Cerrar</a>
+				Estamos en pruebas, muy pronto tendremos buen contenido!!
+			</div>
+		</div>
 		
 		<div id="main" role="main">			
 			<aside>
@@ -35,7 +40,28 @@
 							<a href="http://manrouss.com/"><img src="/static/images/logo.png" alt="logo" /></a>
 						</header>
 						
-						<?php $m = 1; include 'menu.php'; ?>
+						<nav>
+						    <ul class="sf-menu sf-vertical sf-js-enabled">
+						        <li class="current">
+						            <a href="/">Inicio</a>
+						        </li>
+						        <li>
+						            <a href="#" class="highlight">Acerca de</a>
+						        </li>
+						        <li>
+						            <a href="#" class="highlight">Videojuegos</a>
+						        </li>
+						        <li>
+						            <a href="#">El Blog</a>
+						        </li>
+						        <li>
+						            <a href="/contacto">Contacto</a>
+						        </li>
+						    </ul>
+						    
+						<div class="clearfix"></div>
+						<div id="navigation-base"></div>
+						</nav>
 						
 						<hr /><!-- DIVIDER -->
 						
@@ -54,17 +80,37 @@
 			  </div><!-- close #sidebar-bottom -->
 			</aside><!-- SIDEBAR CLOSED -->
 			
-			{% block content %}{% endblock %}
+			
+			<div id="content">
+				<div id="content-top">
+					<div id="content-top-right"></div>
+			  	</div><!-- close #content-top -->
+				
+				<div id="content-container-bg-left">
+					<div id="content-container-bg-right">
+						<div id="content-container">
+						
+						{% block content %}{% endblock %}
+						
+						<div class="clearfix"></div>
+						</div><!-- close #content-container -->
+					</div><!-- close #content-container-bg-right" -->
+				</div><!-- close #content-container-bg-left -->
+				
+				<div id="content-bottom">
+					<div id="content-bottom-right"></div>
+			  </div><!-- close #content-bottom -->
+			</div><!-- close #content -->
 
 			<div class="clearfix"></div>
 			<div id="main-base"></div><!-- close #main-base -->
 			</div><!-- close #main -->
 				
 				<footer>
-					<?php include 'footer.php'; ?>
+					<div id="footer-container"> Todos los Derechos Reservados &reg; 2012 - <a href="http://twitter.com/ManRouss" target="_blank">@ManRouss</a> </div>
 				</footer>
-			</div> <!-- end of #container -->
 
+			</div> <!-- end of #container -->
 
 			<div class="clearfix"></div>
 			<script src="../../ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>

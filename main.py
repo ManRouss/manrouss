@@ -21,6 +21,11 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write(template.render("templates/index.html", locals()))
 
+class ContactoHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(template.render("templates/contacto.html", locals()))
+
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/contacto', ContactoHandler)
 ], debug=True)

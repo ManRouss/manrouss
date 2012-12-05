@@ -13,18 +13,27 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Mobile viewport optimized: j.mp/bplateviewport -->
 		<link rel="stylesheet" href="/static/css/styles-home.css">
 		<link rel="stylesheet" href="/static/css/style-adjustments.css">
+		<link href='/static/css/smokePuff.css' rel='stylesheet' type='text/css' />
 		<script src="/static/js/libs/modernizr-2.0.6.min.js"></script>
 	</head>
 	<body>
-		
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
 		<div id="container">
     
-		<div id="topannounce" style="display: block;">
+		<!--<div id="topannounce" style="display: block;">
 			<div id="announce-container" align="center">
 				<a href="#" onclick="$.cookie('notificationBar', 'closed'); $('#topannounce').fadeOut('fast')" class="rightCloseButton" title="Clic para cerrar la notificaci�n">Cerrar</a>
 				Estamos en pruebas, muy pronto tendremos buen contenido!!
 			</div>
-		</div>
+		</div>-->
 		
 		<div id="main" role="main">			
 			<aside>
@@ -37,7 +46,7 @@
 						<div id="sidebar-container">
 							
 						<header>
-							<a href="http://manrouss.com/"><img src="/static/images/logo.png" alt="logo" /></a>
+							<a href="/"><img src="/static/images/logo.png" alt="logo" /></a>
 						</header>
 						
 						<nav>
@@ -45,7 +54,7 @@
 						        <li class="current">
 						            <a href="/">Inicio</a>
 						        </li>
-						        <li>
+						        <!--<li>
 						            <a href="#" class="highlight">Acerca de</a>
 						        </li>
 						        <li>
@@ -53,7 +62,7 @@
 						        </li>
 						        <li>
 						            <a href="#">El Blog</a>
-						        </li>
+						        </li>-->
 						        <li>
 						            <a href="/contacto">Contacto</a>
 						        </li>
@@ -65,12 +74,17 @@
 						
 						<hr /><!-- DIVIDER -->
 						
-						<div class="content-padding">
+						<!--<div class="content-padding">
 							<h2 class="twitter-heading">Ultimos Tweets</h2>
 							<div id="tweets-sidebar"><div class="clearfix"></div></div>
-							<a href="http://twitter.com/ManRouss/" target="_blank" class="button">Sigueme en Twitter</a>						</div>
+							<a href="http://twitter.com/ManRouss/" target="_blank" class="button">Sigueme en Twitter</a>
+						</div>-->
 						
-						<div class="clearfix"></div>
+						<div id="tuberia" align="center">
+							<img src='/static/images/tuberia.png' border="0" />
+						</div>
+						
+						
 						</div><!-- close #sidebar-container -->
 					</div><!-- close #sidebar-container-bg-right" -->
 				</div><!-- close #sidebar-container-bg-left -->
@@ -113,7 +127,7 @@
 			</div> <!-- end of #container -->
 
 			<div class="clearfix"></div>
-			<script src="../../ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
 			<script>window.jQuery || document.write("<script src='/static/js/libs/jquery-1.6.2.min.js'>\x3C/script>")</script>
 
 			<script src="/static/js/plugins.js"></script>
@@ -126,6 +140,15 @@
 			</script>	
 
 			<script src="/static/js/script.js"></script>
+			<script src="/static/js/libs/smokeEffect_old.js" type="text/javascript"></script>
+			<script type='text/javascript'>
+				
+				SmokeEffect.imgLocation = "/static/images/vanquish-logo.png";
+				SmokeEffect.smokeWidth = 320;
+				SmokeEffect.smokeHeight = 176;
+	
+				SmokeEffect.makeEffect("tuberia", 80, 0);
+			</script>
 			<!-- end JavaScripts scripts-->
 
 	</body>

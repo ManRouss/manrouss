@@ -21,11 +21,17 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write(template.render("templates/index.html", locals()))
 
+class PostHandler(webapp2.RequestHandler):
+    def get(self):
+    	#post = db.get(key)
+        self.response.write(template.render("templates/post.html",locals()))
+
 class ContactoHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write(template.render("templates/contacto.html", locals()))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/contacto', ContactoHandler)
+    ('/contacto', ContactoHandler),
+    ('/post', PostHandler)
 ], debug=True)

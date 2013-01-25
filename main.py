@@ -16,6 +16,13 @@
 #
 import webapp2
 from google.appengine.ext.webapp import util, template
+from google.appengine.ext import db
+
+class Post(db.Model):
+    title = db.StringProperty()
+    description = db.StringProperty()
+    content = db.TextProperty()
+    created = db.DateTimeProperty(auto_now_add = True)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):

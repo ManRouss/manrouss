@@ -22,6 +22,7 @@ class Post(db.Model):
     title = db.StringProperty()
     image = db.StringProperty()
     description = db.TextProperty()
+    content = db.TextProperty()
     video = db.TextProperty()
     created = db.DateTimeProperty(auto_now_add=True)
 

@@ -16,6 +16,14 @@
 #
 import webapp2
 from google.appengine.ext.webapp import util, template
+from google.appengine.ext import db
+
+class Post(db.Model):
+    title = db.StringProperty()
+    image = db.StringProperty()
+    description = db.TextProperty()
+    video = db.TextProperty()
+    created = db.DateTimeProperty(auto_now_add=True)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -30,8 +38,18 @@ class ContactoHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write(template.render("templates/contacto.html", locals()))
 
+class AdminHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(template.render("templates/admin.html", locals()))
+
+class AdminPostNewHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(template.render("templates/post-new.html", locals()))
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/contacto', ContactoHandler),
-    ('/post', PostHandler)
+    ('/post', PostHandler),
+    ('/admin', AdminHandler),
+    ('/admin/post/new', AdminPostNewHandler)
 ], debug=True)

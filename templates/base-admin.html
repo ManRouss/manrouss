@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="es"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="es"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="es"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>{% block title %}ManRouss Administrador{% endblock %}</title>
+		<meta name="description" content="Manrouss - En manrouss.com encontraras reseñas de videojuegos, unboxing, noticias, gadgets, cosas geek y tecnológicas. Seguramente encontraras algo interesante.">
+		<meta name="author" content="Manrouss.com">
+	    <link rel="icon" href="favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Mobile viewport optimized: j.mp/bplateviewport -->
+		<link rel="stylesheet" href="/static/css/styles-home.css">
+		<link rel="stylesheet" href="/static/css/style-adjustments.css">
+		<link href='/static/css/smokePuff.css' rel='stylesheet' type='text/css' />
+		<script src="/static/js/libs/modernizr-2.0.6.min.js"></script>
+	</head>
+	<body>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+		<div id="container">
+    
+		<!--<div id="topannounce" style="display: block;">
+			<div id="announce-container" align="center">
+				<a href="#" onclick="$.cookie('notificationBar', 'closed'); $('#topannounce').fadeOut('fast')" class="rightCloseButton" title="Clic para cerrar la notificaci�n">Cerrar</a>
+				Estamos en pruebas, muy pronto tendremos buen contenido!!
+			</div>
+		</div>-->
+		
+		<div id="main" role="main">			
+			<aside>
+				<div id="sidebar-top">
+					<div id="sidebar-top-right"></div>
+			  </div><!-- close #sidebar-top -->
+				
+				<div id="sidebar-container-bg-left">
+					<div id="sidebar-container-bg-right">
+						<div id="sidebar-container">
+							
+						<header>
+							<a href="/"><img src="/static/images/logo.png" alt="logo" /></a>
+						</header>
+						
+						<nav>
+						    <ul class="sf-vertical sf-js-enabled">
+						        <li class="current" style="padding-left:25px; font-size:20px">
+						            <a href="/admin/post/new">Crear nuevo contenido</a>
+						        </li>
+						        <li class="current" style="padding-left:25px; font-size:20px">
+						            <a href="/admin/post/new">Crear nuevo usuario</a>
+						        </li>
+						    </ul>
+						    
+						<div class="clearfix"></div>
+						<div id="navigation-base"></div>
+						</nav>
+						
+						<hr /><!-- DIVIDER -->
+						
+						<!--<div class="content-padding">
+							<h2 class="twitter-heading">Ultimos Tweets</h2>
+							<div id="tweets-sidebar"><div class="clearfix"></div></div>
+							<a href="http://twitter.com/ManRouss/" target="_blank" class="button">Sigueme en Twitter</a>
+						</div>-->
+						
+						</div><!-- close #sidebar-container -->
+					</div><!-- close #sidebar-container-bg-right" -->
+				</div><!-- close #sidebar-container-bg-left -->
+				
+				<div id="sidebar-bottom">
+					<div id="sidebar-bottom-right"></div>
+			  </div><!-- close #sidebar-bottom -->
+			</aside><!-- SIDEBAR CLOSED -->
+			
+			
+			<div id="content">
+				<div id="content-top">
+					<div id="content-top-right"></div>
+			  	</div><!-- close #content-top -->
+				
+				<div id="content-container-bg-left">
+					<div id="content-container-bg-right">
+						<div id="content-container">
+						
+						{% block content %}{% endblock %}
+						
+						<div class="clearfix"></div>
+						</div><!-- close #content-container -->
+					</div><!-- close #content-container-bg-right" -->
+				</div><!-- close #content-container-bg-left -->
+				
+				<div id="content-bottom">
+					<div id="content-bottom-right"></div>
+			  </div><!-- close #content-bottom -->
+			</div><!-- close #content -->
+
+			<div class="clearfix"></div>
+			<div id="main-base"></div><!-- close #main-base -->
+			</div><!-- close #main -->
+				
+				<footer>
+					<div id="footer-container"> Todos los Derechos Reservados &reg; 2012 - <a href="http://twitter.com/ManRouss" target="_blank">@ManRouss</a> </div>
+				</footer>
+
+			</div> <!-- end of #container -->
+
+			<div class="clearfix"></div>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+			<script>window.jQuery || document.write("<script src='/static/js/libs/jquery-1.6.2.min.js'>\x3C/script>")</script>
+
+			<script src="/static/js/plugins.js"></script>
+
+			<script> 
+			  window._gaq = [['_setAccount','UA-29455191-1'],['_trackPageview'],['_trackPageLoadTime']];
+			  Modernizr.load({
+			    load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+			  });
+			</script>	
+
+			<script src="/static/js/script.js"></script>
+			<!-- end JavaScripts scripts-->
+
+	</body>
+</html>

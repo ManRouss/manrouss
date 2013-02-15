@@ -22,9 +22,11 @@ import json
 
 class Post(db.Model):
     title = db.StringProperty()
-    description = db.StringProperty()
+    image = db.StringProperty()
+    description = db.TextProperty()
     content = db.TextProperty()
-    created = db.DateTimeProperty(auto_now_add = True)
+    video = db.TextProperty()
+    created = db.DateTimeProperty(auto_now_add=True)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -44,9 +46,20 @@ class JsonPage(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.out.write(json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}]))
 
+class AdminHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(template.render("templates/admin.html", locals()))
+
+class AdminPostNewHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(template.render("templates/post-new.html", locals()))
+
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/contacto', ContactoHandler),
     ('/post', PostHandler),
     ('/json', JsonPage)
+    ('/admin', AdminHandler),
+    ('/admin/post/new', AdminPostNewHandler)
 ], debug=True)

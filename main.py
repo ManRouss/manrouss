@@ -17,6 +17,8 @@
 import webapp2
 from google.appengine.ext.webapp import util, template
 from google.appengine.ext import db
+from google.appengine.ext.webapp.util import run_wsgi_app
+import json
 
 class Post(db.Model):
     title = db.StringProperty()
@@ -37,8 +39,14 @@ class ContactoHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write(template.render("templates/contacto.html", locals()))
 
+class JsonPage(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}]))
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/contacto', ContactoHandler),
-    ('/post', PostHandler)
+    ('/post', PostHandler),
+    ('/json', JsonPage)
 ], debug=True)

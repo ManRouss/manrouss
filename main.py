@@ -59,7 +59,7 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/contacto', ContactoHandler),
     ('/post', PostHandler),
-    ('/json', JsonPage)
+    ('/json', JsonPage),
     ('/admin', AdminHandler),
     ('/admin/post/new', AdminPostNewHandler)
 ], debug=True)

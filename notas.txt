@@ -1,0 +1,64 @@
+Here is a section of configuration for a request handler in a Python app, which
+would appear in the app.yaml file:
+handlers:
+- url: /profile/.*
+script: users.profile.app
+
+A Python source file named users/profile.py contains a WSGI application instance in a
+variable named app. This code knows how to invoke the webapp2 framework to handle
+the request, which in turn calls our code:
+
+import jinja2
+import os
+import webapp2
+from google.appengine.api import users
+from google.appengine.ext import db
+
+class UserProfile(db.Model):
+	user = db.UserProperty()
+	template_env = jinja2.Environment(
+	loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+
+class ProfileHandler(webapp2.RequestHandler):
+	def get(self):
+	# Call the Users service to identify the user making the request,
+	# if the user is signed in.
+	current_user = users.get_current_user()
+	# Call the Datastore service to retrieve the user's profile data.
+	profile = None
+	
+	if current_user:
+	profile = UserProfile.all().filter('user', current_user).fetch(1)
+	# Render a response page using a template.
+	template = template_env.get_template('profile.html')
+	self.response.out.write(template.render({'profile': profile}))
+	app = webapp2.WSGIApplication([('/profile/?', ProfileHandler)], debug=True)
+
+When a user visits the URL path /profile/ on this application’s domain, App Engine
+matches the request to users.profile.app via the application configuration, and then
+invokes it to produce the response. The WSGIApplication creates an object of the Pro
+fileHandler class with the request data, then calls its get() method. The method code
+makes use of two App Engine services, the Users service and the Datastore service, to
+access resources outside of the app code. It uses that data to make a web page, then exits.
+
+////////////////////////////////////////////////
+
+Puedes configurar un controlador de modo que rechace el acceso a direcciones URL protegidas cuando el usuario no haya iniciado sesión, en lugar de redireccionar al usuario a la página de acceso. Un usuario rechazado recibe un código de estado HTTP 401. Para configurar una aplicación de modo que rechace a los usuarios que no hayan iniciado sesión, añade auth_fail_action: unauthorized a la configuración del controlador:
+
+handlers:
+- url: /secure_api/.*
+  script: api_handler.py
+  login: required
+  auth_fail_action: unauthorized
+
+El valor de auth_fail_action predeterminado es redirect.
+
+
+
+
+
+
+
+
+
+
